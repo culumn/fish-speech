@@ -473,6 +473,7 @@ def parse_args():
     parser.add_argument("--compile", action="store_true")
     parser.add_argument("--max-gradio-length", type=int, default=0)
     parser.add_argument("--theme", type=str, default="light")
+    parser.add_argument("--share", type=bool, default=None)
 
     return parser.parse_args()
 
@@ -516,4 +517,4 @@ if __name__ == "__main__":
     logger.info("Warming up done, launching the web UI...")
 
     app = build_app()
-    app.launch(show_api=True)
+    app.launch(show_api=True, share=args.share)
